@@ -1,7 +1,9 @@
-﻿# CMakeList.txt : CMake project for cothrom, include source and define
-# project specific logic here.
-#
-cmake_minimum_required (VERSION 3.8)
+﻿cmake_minimum_required (VERSION 3.8)
+
+if(WIN32)
+	list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/cmake")
+endif()
+
 
 # Enable Hot Reload for MSVC compilers if supported.
 if (POLICY CMP0141)
@@ -11,11 +13,23 @@ endif()
 
 project ("cothrom")
 
-# Add source to this project's executable.
-add_executable (cothrom "cothrom.cpp" "cothrom.h")
+
+include_directories(cothrom include)
+add_executable (cothrom cothrom.cpp thirdparty/glad.c)
+
+find_package(glfw3 3.3 REQUIRED)
+
 
 if (CMAKE_VERSION VERSION_GREATER 3.12)
   set_property(TARGET cothrom PROPERTY CXX_STANDARD 20)
 endif()
 
-# TODO: Add tests and install targets if needed.
+if(UNIX)
+	set(GLFW3_LIBRARY glfw)
+endif()
+
+
+include_directories(${CMAKE_CURRENT_LIST_DIR} thirdparty/include ${GLFW3_INCLUDE_DIR})
+
+target_link_libraries(cothrom ${GLFW3_LIBRARY})
+
