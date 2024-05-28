@@ -8,6 +8,7 @@
 #include <glm/gtc/constants.hpp>
 
 #include <chrono>
+#include <thread>
 
 #include <stdio.h>
 #include <stdlib.h>

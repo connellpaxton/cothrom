@@ -1,0 +1,3 @@
+/home/tyromaniac/3D/cothrom/CMakeFiles/cothrom.dir
+/home/tyromaniac/3D/cothrom/CMakeFiles/edit_cache.dir
+/home/tyromaniac/3D/cothrom/CMakeFiles/rebuild_cache.dir
