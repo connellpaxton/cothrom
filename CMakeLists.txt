@@ -32,4 +32,3 @@ endif()
 include_directories(${CMAKE_CURRENT_LIST_DIR} thirdparty/include ${GLFW3_INCLUDE_DIR})
 
 target_link_libraries(cothrom ${GLFW3_LIBRARY})
-
